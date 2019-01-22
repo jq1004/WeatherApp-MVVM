@@ -22,7 +22,6 @@ class WeatherListViewModel: NSObject{
     var dailyViewModels: [[WeatherSource]] = []
     
     func populateSources(){
-        
         self.weatherAPIService.loadSources(lat: lat!, lon: lon!) { (sources) in
             self.weatherViewModels?.append((sources?.first)!)
             self.dailyViewModels.append(sources!)

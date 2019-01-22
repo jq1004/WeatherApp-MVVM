@@ -39,6 +39,15 @@ class WeatherCell: UITableViewCell {
     }
     
     func cellWDataSet(){
+        let icon = weatherSourceObj?.icon.lowercased()
+        if icon == "clear-day" || icon == "clear-night" || icon == "sunny"{
+            outerView.backgroundColor = Colors.green
+        } else if icon == "snow" || icon == "rain" || icon == "wind"{
+            outerView.backgroundColor = Colors.red
+        } else {
+            outerView.backgroundColor = Colors.lightGrey
+        }
+        
         highTemplbl.text = (weatherSourceObj?.highTemp)! + "°F"
         lowTemplbl.text = (weatherSourceObj?.lowTemp)! + "°F"
     }

@@ -40,7 +40,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="149"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RV6-3R-PPE" userLabel="OuterView">
+                                                <view alpha="0.90000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RV6-3R-PPE" userLabel="OuterView">
                                                     <rect key="frame" x="10" y="10" width="355" height="129"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20°F" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GDc-YM-q8n">
@@ -69,7 +69,7 @@
                                                             </constraints>
                                                         </imageView>
                                                     </subviews>
-                                                    <color key="backgroundColor" red="0.91911362949999997" green="1" blue="0.32322485550000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstItem="GDc-YM-q8n" firstAttribute="firstBaseline" secondItem="mef-93-wBT" secondAttribute="firstBaseline" id="EzH-jJ-bA1"/>
                                                         <constraint firstItem="HK2-Rz-JqM" firstAttribute="top" secondItem="s03-ie-Xuv" secondAttribute="top" id="IDd-nQ-8Ed"/>
