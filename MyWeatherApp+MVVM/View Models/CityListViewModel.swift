@@ -20,10 +20,8 @@ class CityListViewModel: NSObject{
     }
     
     func populateSources(){
-        
         self.cityAPIService.loadSources(cityName: cityName!) { (source) in
             self.cityViewModels?.append(source!)
-            //            print(self.cityViewModels!.count)
         }
     }
     

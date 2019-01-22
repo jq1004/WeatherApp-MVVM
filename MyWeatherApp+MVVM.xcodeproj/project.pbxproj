@@ -92,7 +92,7 @@
 				45E825D021F6644F009EF4FD /* Cells */,
 				45E825C321F644B4009EF4FD /* Models */,
 				45E825C021F6433C009EF4FD /* View Models */,
-				45E825BD21F641D4009EF4FD /* Service */,
+				45E825BD21F641D4009EF4FD /* APIService */,
 				45E825A621F63FC4009EF4FD /* AppDelegate.swift */,
 				45E825AA21F63FC4009EF4FD /* Main.storyboard */,
 				45E825AD21F63FC6009EF4FD /* Assets.xcassets */,
@@ -102,13 +102,13 @@
 			path = "MyWeatherApp+MVVM";
 			sourceTree = "<group>";
 		};
-		45E825BD21F641D4009EF4FD /* Service */ = {
+		45E825BD21F641D4009EF4FD /* APIService */ = {
 			isa = PBXGroup;
 			children = (
 				45E825C621F64657009EF4FD /* WeatherAPIService.swift */,
 				45E825DC21F6CE51009EF4FD /* CityAPIService.swift */,
 			);
-			path = Service;
+			path = APIService;
 			sourceTree = "<group>";
 		};
 		45E825C021F6433C009EF4FD /* View Models */ = {

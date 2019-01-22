@@ -16,7 +16,6 @@ class WeatherAPIService{
     func loadSources(lat: String, lon:String, completion: @escaping (WeatherSource?) -> Void) {
         // 1
         Alamofire.request("https://api.darksky.net/forecast/\(weatherAPIKey)/\(lat),\(lon)")
-    
             // 2
             .responseJSON { response in
                 //                self.activityIndicator.stopAnimating()
@@ -27,15 +26,11 @@ class WeatherAPIService{
                         return
                 }
                
-     
                 var data :WeatherSource?
                 var jsonResponse = JSON(value)
-                var jsonWeather = jsonResponse["currently"]
-                let iconName = jsonWeather["icon"].stringValue
                 
                 print("*******Printing weather data")
    
-                
                 let dateFormatter = DateFormatter()
                 dateFormatter.dateFormat = "EEEE"
 
@@ -48,7 +43,7 @@ class WeatherAPIService{
                     let precipitation = "\(Int(round(item.1["precipProbability"].doubleValue*100)))"
                     let humidity = "\(Int(round(item.1["humidity"].doubleValue*100)))"
                     let wind = "\(Int(round(item.1["windSpeed"].doubleValue)))"
-//                     print(icon)
+                    
                     print("precipitation: \(precipitation)")
                     print("humidity: \(humidity)")
                     print("wind: \(wind)")
@@ -61,7 +56,7 @@ class WeatherAPIService{
                     break
                 }
                 
-                // 4
+                // 3
                 DispatchQueue.main.async {
                     completion(data)
                 }
