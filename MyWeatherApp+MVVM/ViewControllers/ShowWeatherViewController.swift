@@ -26,7 +26,7 @@ class ShowWeatherViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-        initializeUI()
+        updateUI()
     }
     
     func setupView(){
@@ -34,7 +34,7 @@ class ShowWeatherViewController: UIViewController {
         cityImg.layer.cornerRadius = 12
     }
     
-    func initializeUI(){
+    func updateUI(){
         cityName.text = showWeatherViewModel.cityInfo?.cityName
         dayLbl.text = showWeatherViewModel.weatherInfo?.day
         weatherLbl.text = showWeatherViewModel.weatherInfo?.icon

@@ -15,17 +15,16 @@ class WeatherCell: UITableViewCell {
     @IBOutlet weak var lowTemplbl: UILabel!
     @IBOutlet weak var cityImg: UIImageView!
     @IBOutlet weak var outerView: UIView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         outerView.layer.cornerRadius = 12
         
     }
    
-    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
     }
     var weatherSourceObj: WeatherSource?{
         didSet{
@@ -41,7 +40,6 @@ class WeatherCell: UITableViewCell {
     
     func cellWDataSet(){
         highTemplbl.text = (weatherSourceObj?.highTemp)! + "°F"
-        
         lowTemplbl.text = (weatherSourceObj?.lowTemp)! + "°F"
     }
     func cellCDataSet(){
