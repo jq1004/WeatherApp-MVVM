@@ -35,8 +35,7 @@ class CityAPIService{
                 var urls = resultsArr[0]["urls"]
                 let url = urls["small"].stringValue
                 data = CitySource(cityName: cityName.capitalized, img: URL(string: url)!)
-//                print("imgurl \(data?.imgUrl)")
-                // 4
+                // 3
                 DispatchQueue.main.async {
                     completion(data)
                 }

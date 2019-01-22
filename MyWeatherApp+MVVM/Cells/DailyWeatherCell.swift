@@ -30,7 +30,6 @@ class DailyWeatherCell: UICollectionViewCell {
         }
         else { weatherLbl.text = dailyWeatherObj!.icon}
         
-        print(dailyWeatherObj!.icon)
         weatherImgView.image = UIImage(named: dailyWeatherObj!.icon.lowercased())
         
         highTempLbl.text = (dailyWeatherObj?.highTemp)! + "°F"

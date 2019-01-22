@@ -9,7 +9,6 @@
 import Foundation
 class ShowWeatherViewModel: NSObject{
    
-    
     var cityInfo: CitySource?
     var dailyWeatherSource: [WeatherSource]?
     

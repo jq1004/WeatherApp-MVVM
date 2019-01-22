@@ -43,10 +43,6 @@ class WeatherAPIService{
                     let precipitation = "\(Int(round(item.1["precipProbability"].doubleValue*100)))"
                     let humidity = "\(Int(round(item.1["humidity"].doubleValue*100)))"
                     let wind = "\(Int(round(item.1["windSpeed"].doubleValue)))"
-//
-//                    print("precipitation: \(precipitation)")
-//                    print("humidity: \(humidity)")
-//                    print("wind: \(wind)")
                     
                     let seconds = item.1["time"].doubleValue
                     let timestampDate = NSDate(timeIntervalSince1970: seconds)

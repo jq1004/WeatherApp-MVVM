@@ -36,10 +36,17 @@ class CityListViewController: UIViewController {
     
     @IBAction func addCityBtn(_ sender: UIButton) {
         
+        searchTxtField.text = searchTxtField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        
         if searchTxtField.text?.count ?? 0 > 0 {
             
             geocoder.geocodeAddressString(searchTxtField.text!) {
                 placemarks, error in
+                
+                if error != nil {
+                    return
+                }
+                
                 let placemark = placemarks?.first
                 let lat = placemark?.location?.coordinate.latitude
                 let lon = placemark?.location?.coordinate.longitude
