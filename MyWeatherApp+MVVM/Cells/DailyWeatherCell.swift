@@ -16,5 +16,24 @@ class DailyWeatherCell: UICollectionViewCell {
     @IBOutlet weak var highTempLbl: UILabel!
     @IBOutlet weak var lowTempLbl: UILabel!
     
+    var dailyWeatherObj: WeatherSource? {
+        didSet{
+            cellDataSet()
+        }
+    }
     
+    func cellDataSet(){
+        dayLbl.text = dailyWeatherObj?.day
+        
+        if dailyWeatherObj!.icon.contains("Cloudy") {
+            weatherLbl.text = "Cloudy"
+        }
+        else { weatherLbl.text = dailyWeatherObj!.icon}
+        
+        print(dailyWeatherObj!.icon)
+        weatherImgView.image = UIImage(named: dailyWeatherObj!.icon.lowercased())
+        
+        highTempLbl.text = (dailyWeatherObj?.highTemp)! + "°F"
+        lowTempLbl.text = (dailyWeatherObj?.lowTemp)! + "°F"
+    }
 }

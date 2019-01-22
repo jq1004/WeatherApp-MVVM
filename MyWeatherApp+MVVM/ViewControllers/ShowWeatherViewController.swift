@@ -39,15 +39,13 @@ class ShowWeatherViewController: UIViewController {
     
     func updateUI(){
         cityName.text = showWeatherViewModel.cityInfo?.cityName
-        dayLbl.text = showWeatherViewModel.weatherInfo?.day
-        weatherLbl.text = showWeatherViewModel.weatherInfo?.icon
-        precipitationLbl.text = "Precipitation : " + (showWeatherViewModel.weatherInfo?.precipitation)! + "%"
-        humidityLbl.text = "Humidity : " + (showWeatherViewModel.weatherInfo?.humidity)! + "%"
-        windLbl.text = "Wind : " + (showWeatherViewModel.weatherInfo?.wind)! + " m/s"
-        highTempLbl.text = (showWeatherViewModel.weatherInfo?.highTemp)! + "°F"
-        lowTempLbl.text = (showWeatherViewModel.weatherInfo?.lowTemp)! + "°F"
-        
-        
+        dayLbl.text = showWeatherViewModel.dailyWeatherSource?.first?.day
+        weatherLbl.text = showWeatherViewModel.dailyWeatherSource?.first?.icon
+        precipitationLbl.text = "Precipitation : " + (showWeatherViewModel.dailyWeatherSource?.first?.precipitation)! + "%"
+        humidityLbl.text = "Humidity : " + (showWeatherViewModel.dailyWeatherSource?.first?.humidity)! + "%"
+        windLbl.text = "Wind : " + (showWeatherViewModel.dailyWeatherSource?.first?.wind)! + " m/s"
+        highTempLbl.text = (showWeatherViewModel.dailyWeatherSource?.first?.highTemp)! + "°F"
+        lowTempLbl.text = (showWeatherViewModel.dailyWeatherSource?.first?.lowTemp)! + "°F"
         cityImg.af_setImage(withURL: (showWeatherViewModel.cityInfo?.imgUrl)!)
     }
 
@@ -55,12 +53,13 @@ class ShowWeatherViewController: UIViewController {
 
 extension ShowWeatherViewController : UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 8
+        return (showWeatherViewModel.dailyWeatherSource?.count)!-1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! DailyWeatherCell
+        cell.dailyWeatherObj = showWeatherViewModel.dailyWeatherSource![indexPath.row]
         
         return cell
     }

@@ -13,7 +13,7 @@ import SwiftyJSON
 class WeatherAPIService{
     private let weatherAPIKey = "02164969bf428cc17cf55cf3626914ac"
 
-    func loadSources(lat: String, lon:String, completion: @escaping (WeatherSource?) -> Void) {
+    func loadSources(lat: String, lon:String, completion: @escaping ([WeatherSource]?) -> Void) {
         // 1
         Alamofire.request("https://api.darksky.net/forecast/\(weatherAPIKey)/\(lat),\(lon)")
             // 2
@@ -26,7 +26,7 @@ class WeatherAPIService{
                         return
                 }
                
-                var data :WeatherSource?
+                var data :[WeatherSource] = []
                 var jsonResponse = JSON(value)
                 
                 print("*******Printing weather data")
@@ -43,18 +43,19 @@ class WeatherAPIService{
                     let precipitation = "\(Int(round(item.1["precipProbability"].doubleValue*100)))"
                     let humidity = "\(Int(round(item.1["humidity"].doubleValue*100)))"
                     let wind = "\(Int(round(item.1["windSpeed"].doubleValue)))"
-                    
-                    print("precipitation: \(precipitation)")
-                    print("humidity: \(humidity)")
-                    print("wind: \(wind)")
+//
+//                    print("precipitation: \(precipitation)")
+//                    print("humidity: \(humidity)")
+//                    print("wind: \(wind)")
                     
                     let seconds = item.1["time"].doubleValue
                     let timestampDate = NSDate(timeIntervalSince1970: seconds)
                     let day = dateFormatter.string(from: timestampDate as Date)
                    
-                    data = WeatherSource(day: day, icon: icon.capitalized, lowTemp: lowTemp, highTemp: highTemp, precipitation: precipitation, humidity: humidity, wind: wind)
-                    break
+                    var oneSource = WeatherSource(day: day, icon: icon.capitalized, lowTemp: lowTemp, highTemp: highTemp, precipitation: precipitation, humidity: humidity, wind: wind)
+                    data.append(oneSource)
                 }
+                print("weather apicall array count:\(data.count)")
                 
                 // 3
                 DispatchQueue.main.async {

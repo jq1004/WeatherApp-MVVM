@@ -19,11 +19,13 @@ class WeatherListViewModel: NSObject{
             reloadModelList()
         }
     }
+    var dailyViewModels: [[WeatherSource]] = []
     
     func populateSources(){
         
-        self.weatherAPIService.loadSources(lat: lat!, lon: lon!) { (source) in
-            self.weatherViewModels?.append(source!)
+        self.weatherAPIService.loadSources(lat: lat!, lon: lon!) { (sources) in
+            self.weatherViewModels?.append((sources?.first)!)
+            self.dailyViewModels.append(sources!)
         }
     }
     

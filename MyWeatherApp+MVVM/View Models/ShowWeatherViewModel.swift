@@ -11,6 +11,6 @@ class ShowWeatherViewModel: NSObject{
    
     
     var cityInfo: CitySource?
-    var weatherInfo: WeatherSource?
+    var dailyWeatherSource: [WeatherSource]?
     
 }

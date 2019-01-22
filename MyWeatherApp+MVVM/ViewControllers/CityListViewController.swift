@@ -90,7 +90,7 @@ extension CityListViewController: UITableViewDataSource, UITableViewDelegate{
         let row = indexPath.row
         let showWeatherViewController = self.storyboard?.instantiateViewController(withIdentifier: "showVC") as! ShowWeatherViewController
         showWeatherViewController.showWeatherViewModel.cityInfo = cityListViewModel.cityViewModels![row]
-        showWeatherViewController.showWeatherViewModel.weatherInfo = weatherListViewModel.weatherViewModels![row]
+        showWeatherViewController.showWeatherViewModel.dailyWeatherSource = weatherListViewModel.dailyViewModels[row]
         self.navigationController?.pushViewController(showWeatherViewController, animated: true)
     }
     
