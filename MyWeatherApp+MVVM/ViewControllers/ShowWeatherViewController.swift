@@ -20,6 +20,8 @@ class ShowWeatherViewController: UIViewController {
     @IBOutlet weak var lowTempLbl: UILabel!
     @IBOutlet weak var cityImg: UIImageView!
     @IBOutlet weak var containterView: UIView!
+    @IBOutlet weak var dailyWeatherView: UIView!
+    @IBOutlet weak var weatherCollectionView: UICollectionView!
     
     let showWeatherViewModel:ShowWeatherViewModel = ShowWeatherViewModel()
     
@@ -32,6 +34,7 @@ class ShowWeatherViewController: UIViewController {
     func setupView(){
         containterView.layer.cornerRadius = 12
         cityImg.layer.cornerRadius = 12
+        dailyWeatherView.layer.cornerRadius = 12
     }
     
     func updateUI(){
@@ -48,4 +51,19 @@ class ShowWeatherViewController: UIViewController {
         cityImg.af_setImage(withURL: (showWeatherViewModel.cityInfo?.imgUrl)!)
     }
 
+}
+
+extension ShowWeatherViewController : UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 8
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! DailyWeatherCell
+        
+        return cell
+    }
+    
+    
 }

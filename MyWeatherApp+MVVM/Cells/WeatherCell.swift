@@ -19,7 +19,7 @@ class WeatherCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         outerView.layer.cornerRadius = 12
-        
+        cityImg.layer.cornerRadius = 12
     }
    
     override func setSelected(_ selected: Bool, animated: Bool) {
